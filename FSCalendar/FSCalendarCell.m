@@ -260,13 +260,7 @@
 - (UIColor *)colorForCurrentStateInDictionary:(NSDictionary *)dictionary
 {
     if (self.isSelected) {
-        if (self.dateIsToday) {
-            return dictionary[@(FSCalendarCellStateSelected|FSCalendarCellStateToday)] ?: dictionary[@(FSCalendarCellStateSelected)];
-        }
         return dictionary[@(FSCalendarCellStateSelected)];
-    }
-    if (self.dateIsToday && [[dictionary allKeys] containsObject:@(FSCalendarCellStateToday)]) {
-        return dictionary[@(FSCalendarCellStateToday)];
     }
     if (self.placeholder && [[dictionary allKeys] containsObject:@(FSCalendarCellStatePlaceholder)]) {
         return dictionary[@(FSCalendarCellStatePlaceholder)];
