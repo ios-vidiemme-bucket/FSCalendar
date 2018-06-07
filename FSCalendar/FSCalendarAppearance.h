@@ -104,11 +104,6 @@ typedef NS_OPTIONS(NSUInteger, FSCalendarCaseOptions) {
 @property (strong, nonatomic) UIColor  *headerTitleColor;
 
 /**
- * The date format of the month header.
- */
-@property (strong, nonatomic) NSString *headerDateFormat;
-
-/**
  * The alpha value of month label staying on the fringes.
  */
 @property (assign, nonatomic) CGFloat  headerMinimumDissolvedAlpha;

@@ -96,9 +96,8 @@
 - (void)setMonth:(NSDate *)month
 {
     _month = month;
-    _calendar.formatter.dateFormat = self.calendar.appearance.headerDateFormat;
     BOOL usesUpperCase = (self.calendar.appearance.caseOptions & 15) == FSCalendarCaseOptionsHeaderUsesUpperCase;
-    NSString *text = [_calendar.formatter stringFromDate:_month];
+    NSString *text = [NSString stringWithFormat:@"%@ %@", [_calendar.calendarWrapper fs_monthNameForDate:month], [_calendar.calendarWrapper fs_yearForDate:month]];
     text = usesUpperCase ? text.uppercaseString : text;
     self.titleLabel.text = text;
 }

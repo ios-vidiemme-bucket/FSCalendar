@@ -1,0 +1,563 @@
+{
+  "updatedAt": "2018-05-18T00:00:00.000Z",
+  "years": {
+    "2015": [
+      {
+        "startDateMonth": "2014-12-28",
+        "endDateMonth": "2015-01-31",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2015-02-01",
+        "endDateMonth": "2015-02-28",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2015-03-01",
+        "endDateMonth": "2015-03-28",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2015-03-29",
+        "endDateMonth": "2015-05-02",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2015-05-03",
+        "endDateMonth": "2015-05-30",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2015-05-31",
+        "endDateMonth": "2015-06-27",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2015-06-28",
+        "endDateMonth": "2015-08-01",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2015-08-02",
+        "endDateMonth": "2015-08-29",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2015-08-30",
+        "endDateMonth": "2015-09-26",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2015-09-27",
+        "endDateMonth": "2015-10-31",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2015-11-01",
+        "endDateMonth": "2015-11-28",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2015-11-29",
+        "endDateMonth": "2015-12-26",
+        "month": 12
+      }
+    ],
+    "2016": [
+      {
+        "startDateMonth": "2015-12-27",
+        "endDateMonth": "2016-01-30",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2016-01-31",
+        "endDateMonth": "2016-02-27",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2016-02-28",
+        "endDateMonth": "2016-03-26",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2016-03-27",
+        "endDateMonth": "2016-04-30",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2016-05-01",
+        "endDateMonth": "2016-05-28",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2016-05-29",
+        "endDateMonth": "2016-06-25",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2016-06-26",
+        "endDateMonth": "2016-07-30",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2016-07-31",
+        "endDateMonth": "2016-08-27",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2016-08-28",
+        "endDateMonth": "2016-09-24",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2016-09-25",
+        "endDateMonth": "2016-10-29",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2016-10-30",
+        "endDateMonth": "2016-11-26",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2016-11-27",
+        "endDateMonth": "2016-12-24",
+        "month": 12
+      }
+    ],
+    "2017": [
+      {
+        "startDateMonth": "2017-01-01",
+        "endDateMonth": "2017-02-04",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2017-02-05",
+        "endDateMonth": "2017-03-04",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2017-03-05",
+        "endDateMonth": "2017-04-01",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2017-04-02",
+        "endDateMonth": "2017-05-06",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2017-05-07",
+        "endDateMonth": "2017-06-03",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2017-06-04",
+        "endDateMonth": "2017-07-01",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2017-07-02",
+        "endDateMonth": "2017-08-05",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2017-08-06",
+        "endDateMonth": "2017-09-02",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2017-09-03",
+        "endDateMonth": "2017-09-30",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2017-10-01",
+        "endDateMonth": "2017-11-04",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2017-11-05",
+        "endDateMonth": "2017-12-02",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2017-12-03",
+        "endDateMonth": "2017-12-30",
+        "month": 12
+      }
+    ],
+    "2018": [
+      {
+        "startDateMonth": "2017-12-31",
+        "endDateMonth": "2018-02-03",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2018-02-04",
+        "endDateMonth": "2018-03-03",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2018-03-04",
+        "endDateMonth": "2018-03-31",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2018-04-01",
+        "endDateMonth": "2018-05-05",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2018-05-06",
+        "endDateMonth": "2018-06-02",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2018-06-03",
+        "endDateMonth": "2018-06-30",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2018-07-01",
+        "endDateMonth": "2018-08-04",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2018-08-05",
+        "endDateMonth": "2018-09-01",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2018-09-02",
+        "endDateMonth": "2018-09-29",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2018-09-30",
+        "endDateMonth": "2018-11-03",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2018-11-04",
+        "endDateMonth": "2018-12-01",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2018-12-02",
+        "endDateMonth": "2018-12-29",
+        "month": 12
+      }
+    ],
+    "2019": [
+      {
+        "startDateMonth": "2018-12-30",
+        "endDateMonth": "2019-02-02",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2019-02-03",
+        "endDateMonth": "2019-03-02",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2019-03-03",
+        "endDateMonth": "2019-03-30",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2019-03-31",
+        "endDateMonth": "2019-05-04",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2019-05-05",
+        "endDateMonth": "2019-06-01",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2019-06-02",
+        "endDateMonth": "2019-06-29",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2019-06-30",
+        "endDateMonth": "2019-08-03",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2019-08-04",
+        "endDateMonth": "2019-08-31",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2019-09-01",
+        "endDateMonth": "2019-09-28",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2019-09-29",
+        "endDateMonth": "2019-11-02",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2019-11-03",
+        "endDateMonth": "2019-11-30",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2019-12-01",
+        "endDateMonth": "2019-12-28",
+        "month": 12
+      }
+    ],
+    "2020": [
+      {
+        "startDateMonth": "2019-12-29",
+        "endDateMonth": "2020-02-01",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2020-02-02",
+        "endDateMonth": "2020-02-29",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2020-03-01",
+        "endDateMonth": "2020-03-28",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2020-03-29",
+        "endDateMonth": "2020-05-02",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2020-05-03",
+        "endDateMonth": "2020-05-30",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2020-05-31",
+        "endDateMonth": "2020-06-27",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2020-06-28",
+        "endDateMonth": "2020-08-01",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2020-08-02",
+        "endDateMonth": "2020-08-29",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2020-08-30",
+        "endDateMonth": "2020-09-26",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2020-09-27",
+        "endDateMonth": "2020-10-31",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2020-11-01",
+        "endDateMonth": "2020-11-28",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2020-11-29",
+        "endDateMonth": "2020-12-26",
+        "month": 12
+      }
+    ],
+    "2021": [
+      {
+        "startDateMonth": "2020-12-27",
+        "endDateMonth": "2021-01-30",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2021-01-31",
+        "endDateMonth": "2021-02-27",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2021-02-28",
+        "endDateMonth": "2021-03-27",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2021-03-28",
+        "endDateMonth": "2021-05-01",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2021-05-02",
+        "endDateMonth": "2021-05-29",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2021-05-30",
+        "endDateMonth": "2021-06-26",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2021-06-27",
+        "endDateMonth": "2021-07-31",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2021-08-01",
+        "endDateMonth": "2021-08-28",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2021-08-29",
+        "endDateMonth": "2021-09-25",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2021-09-26",
+        "endDateMonth": "2021-10-30",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2021-10-31",
+        "endDateMonth": "2021-11-27",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2021-11-28",
+        "endDateMonth": "2021-12-25",
+        "month": 12
+      }
+    ],
+    "2022": [
+      {
+        "startDateMonth": "2021-12-26",
+        "endDateMonth": "2022-01-29",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2022-01-30",
+        "endDateMonth": "2022-02-26",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2022-02-27",
+        "endDateMonth": "2022-03-26",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2022-03-27",
+        "endDateMonth": "2022-04-30",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2022-05-01",
+        "endDateMonth": "2022-05-28",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2022-05-29",
+        "endDateMonth": "2022-06-25",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2022-06-26",
+        "endDateMonth": "2022-07-30",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2022-07-31",
+        "endDateMonth": "2022-08-27",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2022-08-28",
+        "endDateMonth": "2022-09-24",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2022-09-25",
+        "endDateMonth": "2022-10-29",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2022-10-30",
+        "endDateMonth": "2022-11-26",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2022-11-27",
+        "endDateMonth": "2022-12-24",
+        "month": 12
+      }
+    ],
+    "2023": [
+      {
+        "startDateMonth": "2022-12-25",
+        "endDateMonth": "2023-01-28",
+        "month": 1
+      },
+      {
+        "startDateMonth": "2023-01-29",
+        "endDateMonth": "2023-02-25",
+        "month": 2
+      },
+      {
+        "startDateMonth": "2023-02-26",
+        "endDateMonth": "2023-03-25",
+        "month": 3
+      },
+      {
+        "startDateMonth": "2023-03-26",
+        "endDateMonth": "2023-04-29",
+        "month": 4
+      },
+      {
+        "startDateMonth": "2023-04-30",
+        "endDateMonth": "2023-05-27",
+        "month": 5
+      },
+      {
+        "startDateMonth": "2023-05-28",
+        "endDateMonth": "2023-06-24",
+        "month": 6
+      },
+      {
+        "startDateMonth": "2023-06-25",
+        "endDateMonth": "2023-07-29",
+        "month": 7
+      },
+      {
+        "startDateMonth": "2023-07-30",
+        "endDateMonth": "2023-08-26",
+        "month": 8
+      },
+      {
+        "startDateMonth": "2023-08-27",
+        "endDateMonth": "2023-09-23",
+        "month": 9
+      },
+      {
+        "startDateMonth": "2023-09-24",
+        "endDateMonth": "2023-10-28",
+        "month": 10
+      },
+      {
+        "startDateMonth": "2023-10-29",
+        "endDateMonth": "2023-11-25",
+        "month": 11
+      },
+      {
+        "startDateMonth": "2023-11-26",
+        "endDateMonth": "2023-12-23",
+        "month": 12
+      }
+    ]
+  }
+}

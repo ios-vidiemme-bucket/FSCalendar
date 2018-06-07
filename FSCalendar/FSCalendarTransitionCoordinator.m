@@ -438,7 +438,7 @@
             NSDate *currentPage = self.calendar.currentPage;
             NSIndexPath *indexPath = [self.calendar.calculator indexPathForDate:currentPage scope:FSCalendarScopeMonth];
             NSDate *monthHead = [self.calendar.calculator monthHeadForSection:indexPath.section];
-            NSDate *targetPage = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitDay value:focusedRow*7 toDate:monthHead options:0];
+            NSDate *targetPage = [self.calendar.calendarWrapper dateByAddingUnit:NSCalendarUnitDay value:focusedRow*7 toDate:monthHead options:0];
             
             attributes.focusedRowNumber = focusedRow;
             attributes.focusedDate = focusedDate;
@@ -459,7 +459,7 @@
                         [dates addObject:self.calendar.today];
                     }
                     if (self.calendar.currentPage) {
-                        [dates addObject:[self.calendar.gregorian fs_lastDayOfWeek:currentPage]];
+                        [dates addObject:[self.calendar.calendarWrapper fs_lastDayOfWeek:currentPage]];
                     }
                     dates.copy;
                 });
@@ -472,15 +472,15 @@
                 date;
             });
             
-            NSDate *firstDayOfMonth = [self.calendar.gregorian fs_firstDayOfMonth:focusedDate];
+            NSDate *firstDayOfMonth = [self.calendar.calendarWrapper fs_firstDayOfMonth:focusedDate];
             attributes.focusedDate = focusedDate;
-            firstDayOfMonth = firstDayOfMonth ?: [self.calendar.gregorian fs_firstDayOfMonth:currentPage];
+            firstDayOfMonth = firstDayOfMonth ?: [self.calendar.calendarWrapper fs_firstDayOfMonth:currentPage];
             NSInteger numberOfPlaceholdersForPrev = [self.calendar.calculator numberOfHeadPlaceholdersForMonth:firstDayOfMonth];
-            NSDate *firstDateOfPage = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitDay value:-numberOfPlaceholdersForPrev toDate:firstDayOfMonth options:0];
+            NSDate *firstDateOfPage = [self.calendar.calendarWrapper dateByAddingUnit:NSCalendarUnitDay value:-numberOfPlaceholdersForPrev toDate:firstDayOfMonth options:0];
             
             for (int i = 0; i < 6; i++) {
-                NSDate *currentRow = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitWeekOfYear value:i toDate:firstDateOfPage options:0];
-                if ([self.calendar.gregorian isDate:currentRow inSameDayAsDate:currentPage]) {
+                NSDate *currentRow = [self.calendar.calendarWrapper dateByAddingUnit:NSCalendarUnitWeekOfYear value:i toDate:firstDateOfPage options:0];
+                if ([self.calendar.calendarWrapper isDate:currentRow inSameDayAsDate:currentPage]) {
                     focusedRow = i;
                     currentPage = firstDayOfMonth;
                     break;

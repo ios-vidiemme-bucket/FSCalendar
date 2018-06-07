@@ -184,7 +184,7 @@
     FSCalendarAppearance *appearance = self.calendar.appearance;
     cell.titleLabel.font = appearance.headerTitleFont;
     cell.titleLabel.textColor = appearance.headerTitleColor;
-    _calendar.formatter.dateFormat = appearance.headerDateFormat;
+    
     BOOL usesUpperCase = (appearance.caseOptions & 15) == FSCalendarCaseOptionsHeaderUsesUpperCase;
     NSString *text = nil;
     switch (self.calendar.transitionCoordinator.representingScope) {
@@ -194,12 +194,12 @@
                 if ((indexPath.item == 0 || indexPath.item == [self.collectionView numberOfItemsInSection:0] - 1)) {
                     text = nil;
                 } else {
-                    NSDate *date = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitMonth value:indexPath.item-1 toDate:self.calendar.minimumDate options:0];
-                    text = [_calendar.formatter stringFromDate:date];
+                    NSDate *date = [self.calendar.calendarWrapper fs_firstDayOfMonthByAddingMonths:indexPath.item-1 toDate:self.calendar.minimumDate];
+                    text = [NSString stringWithFormat:@"%@ %@", [_calendar.calendarWrapper fs_monthNameForDate:date], [_calendar.calendarWrapper fs_yearForDate:date]];
                 }
             } else {
-                NSDate *date = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitMonth value:indexPath.item toDate:self.calendar.minimumDate options:0];
-                text = [_calendar.formatter stringFromDate:date];
+                NSDate *date = [self.calendar.calendarWrapper fs_firstDayOfMonthByAddingMonths:indexPath.item toDate:self.calendar.minimumDate];
+                text = [NSString stringWithFormat:@"%@ %@", [_calendar.calendarWrapper fs_monthNameForDate:date], [_calendar.calendarWrapper fs_yearForDate:date]];
             }
             break;
         }
@@ -207,9 +207,9 @@
             if ((indexPath.item == 0 || indexPath.item == [self.collectionView numberOfItemsInSection:0] - 1)) {
                 text = nil;
             } else {
-                NSDate *firstPage = [self.calendar.gregorian fs_middleDayOfWeek:self.calendar.minimumDate];
-                NSDate *date = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitWeekOfYear value:indexPath.item-1 toDate:firstPage options:0];
-                text = [_calendar.formatter stringFromDate:date];
+                NSDate *firstPage = [self.calendar.calendarWrapper fs_middleDayOfWeek:self.calendar.minimumDate];
+                NSDate *date = [self.calendar.calendarWrapper dateByAddingUnit:NSCalendarUnitWeekOfYear value:indexPath.item-1 toDate:firstPage options:0];
+                text = [NSString stringWithFormat:@"%@ %@ (%@)", [_calendar.calendarWrapper fs_monthNameForDate:date], [_calendar.calendarWrapper fs_yearForDate:date], [_calendar.calendarWrapper fs_weekNumberForDate:date]];
             }
             break;
         }

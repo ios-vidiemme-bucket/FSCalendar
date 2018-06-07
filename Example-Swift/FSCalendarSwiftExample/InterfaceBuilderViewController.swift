@@ -30,7 +30,6 @@ class InterfaceBuilderViewController: UIViewController, FSCalendarDataSource, FS
                 self.calendar.appearance.headerTitleColor = UIColor(red: 14/255.0, green: 69/255.0, blue: 221/255.0, alpha: 1.0)
                 self.calendar.appearance.eventDefaultColor = UIColor(red: 31/255.0, green: 119/255.0, blue: 219/255.0, alpha: 1.0)
                 self.calendar.appearance.selectionColor = UIColor(red: 31/255.0, green: 119/255.0, blue: 219/255.0, alpha: 1.0)
-                self.calendar.appearance.headerDateFormat = "MMMM yyyy"
                 self.calendar.appearance.todayColor = UIColor(red: 198/255.0, green: 51/255.0, blue: 42/255.0, alpha: 1.0)
                 self.calendar.appearance.borderRadius = 1.0
                 self.calendar.appearance.headerMinimumDissolvedAlpha = 0.2
@@ -39,7 +38,6 @@ class InterfaceBuilderViewController: UIViewController, FSCalendarDataSource, FS
                 self.calendar.appearance.headerTitleColor = UIColor.darkGray
                 self.calendar.appearance.eventDefaultColor = UIColor.green
                 self.calendar.appearance.selectionColor = UIColor.blue
-                self.calendar.appearance.headerDateFormat = "yyyy-MM";
                 self.calendar.appearance.todayColor = UIColor.red
                 self.calendar.appearance.borderRadius = 1.0
                 self.calendar.appearance.headerMinimumDissolvedAlpha = 0.0
@@ -48,7 +46,6 @@ class InterfaceBuilderViewController: UIViewController, FSCalendarDataSource, FS
                 self.calendar.appearance.headerTitleColor = UIColor.red
                 self.calendar.appearance.eventDefaultColor = UIColor.green
                 self.calendar.appearance.selectionColor = UIColor.blue
-                self.calendar.appearance.headerDateFormat = "yyyy/MM"
                 self.calendar.appearance.todayColor = UIColor.orange
                 self.calendar.appearance.borderRadius = 0
                 self.calendar.appearance.headerMinimumDissolvedAlpha = 1.0

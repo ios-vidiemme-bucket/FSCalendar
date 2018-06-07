@@ -21,6 +21,7 @@
 #import "FSCalendarCalculator.h"
 #import "FSCalendarTransitionCoordinator.h"
 #import "FSCalendarDelegationProxy.h"
+#import "FSCalendarWrapper.h"
 
 @interface FSCalendar (Dynamic)
 
@@ -35,9 +36,8 @@
 @property (readonly, nonatomic) CGFloat preferredWeekdayHeight;
 @property (readonly, nonatomic) UIView *bottomBorder;
 
-@property (readonly, nonatomic) NSCalendar *gregorian;
+@property (readonly, nonatomic) FSCalendarWrapper *calendarWrapper;
 @property (readonly, nonatomic) NSDateComponents *components;
-@property (readonly, nonatomic) NSDateFormatter *formatter;
 
 @property (readonly, nonatomic) UIView *contentView;
 @property (readonly, nonatomic) UIView *daysContainer;

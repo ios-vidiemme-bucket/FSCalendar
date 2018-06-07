@@ -10,5 +10,6 @@
 #define FSCalendarSwiftExample_Objc_Bridge_Header_h
 
 #import "FSCalendar.h"
+#import "FSMerchandisingCalendar.h"
 
 #endif

@@ -20,8 +20,15 @@ class LoadViewExampleViewController: UIViewController, FSCalendarDataSource, FSC
         
         let height: CGFloat = UIDevice.current.model.hasPrefix("iPad") ? 400 : 300
         let calendar = FSCalendar(frame: CGRect(x: 0, y: self.navigationController!.navigationBar.frame.maxY, width: self.view.bounds.width, height: height))
+        
+        let jsonData = try! Data(contentsOf: Bundle.main.url(forResource: "merchandising-calendar", withExtension: "json")!)
+        let merchandisingYearsJSON = try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [AnyHashable : Any]
+        calendar.calendarWrapper = FSMerchandisingCalendar(json: merchandisingYearsJSON)
+
         calendar.dataSource = self
         calendar.delegate = self
+        calendar.placeholderType = FSCalendarPlaceholderType.none
+        calendar.scrollDirection = FSCalendarScrollDirection.vertical
         calendar.backgroundColor = UIColor.white
         self.view.addSubview(calendar)
         self.calendar = calendar
