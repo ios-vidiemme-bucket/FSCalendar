@@ -178,24 +178,16 @@
 				3AE6996220C7013100FF00D6 /* FSCalendarWrapper.m */,
 				3AE6996420C701E900FF00D6 /* FSGregorianCalendar.h */,
 				3AE6996520C701E900FF00D6 /* FSGregorianCalendar.m */,
-				3AFA637620C81575003E63EF /* FSMerchandisingCalendar */,
-				30F4C9381E07C3AD00D2EC4D /* Info.plist */,
-			);
-			name = FSCalendar;
-			path = ../FSCalendar;
-			sourceTree = "<group>";
-		};
-		3AFA637620C81575003E63EF /* FSMerchandisingCalendar */ = {
-			isa = PBXGroup;
-			children = (
 				3AFA637320C8126E003E63EF /* FSMerchandisingCalendar.h */,
 				3AFA637420C8126E003E63EF /* FSMerchandisingCalendar.m */,
 				3AFA637720C815B8003E63EF /* FSMerchandisingCalendarYear.h */,
 				3AFA637820C815B8003E63EF /* FSMerchandisingCalendarYear.m */,
 				3AFA637A20C815C8003E63EF /* FSMerchandisingCalendarMonth.h */,
 				3AFA637B20C815C8003E63EF /* FSMerchandisingCalendarMonth.m */,
+				30F4C9381E07C3AD00D2EC4D /* Info.plist */,
 			);
-			path = FSMerchandisingCalendar;
+			name = FSCalendar;
+			path = ../FSCalendar;
 			sourceTree = "<group>";
 		};
 		EE09549E1B97DDE0007F6964 = {
