@@ -7,6 +7,7 @@
 //
 
 #import "FSCalendarWrapper.h"
+#import "NSCalendar+Locale.h"
 
 @interface FSCalendarWrapper()
 
@@ -146,11 +147,11 @@
 //}
 
 - (NSArray<NSString *> *)shortStandaloneWeekdaySymbols {
-    return _calendar.shortStandaloneWeekdaySymbols;
+    return _calendar.local.shortStandaloneWeekdaySymbols;
 }
 
 - (NSArray<NSString *> *)veryShortStandaloneWeekdaySymbols {
-    return _calendar.veryShortStandaloneWeekdaySymbols;
+    return _calendar.local.veryShortStandaloneWeekdaySymbols;
 }
 
 //- (NSArray<NSString *> *)quarterSymbols {

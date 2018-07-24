@@ -10,6 +10,7 @@
 
 #import "FSMerchandisingCalendarYear.h"
 #import "FSMerchandisingCalendarMonth.h"
+#import "NSDateFormatter+Locale.h"
 
 @interface FSMerchandisingCalendar ()
 
@@ -29,13 +30,13 @@
         _merchandisingYears = merchandisingYears;
         _fs_privateComponents = [[NSDateComponents alloc] init];
         
-        _weekDateFormatter = [[NSDateFormatter alloc] init];
+        _weekDateFormatter = [[[NSDateFormatter alloc] init] local];
         _weekDateFormatter.dateFormat = @"w";
         
-        _yearDateFormatter = [[NSDateFormatter alloc] init];
+        _yearDateFormatter = [[[NSDateFormatter alloc] init] local];
         _yearDateFormatter.dateFormat = @"yyyy";
         
-        _monthDateFormatter = [[NSDateFormatter alloc] init];
+        _monthDateFormatter = [[[NSDateFormatter alloc] init] local];
         _monthDateFormatter.dateFormat = @"MMMM";
     }
     return self;
