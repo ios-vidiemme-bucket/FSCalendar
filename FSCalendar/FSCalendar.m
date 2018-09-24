@@ -663,7 +663,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         }
         case FSCalendarScopeWeek: {
             NSDate *minimumPage = [self.calendarWrapper fs_firstDayOfWeek:_minimumDate];
-            targetPage = [self.calendarWrapper fs_firstDayOfMonthByAddingMonths:sections toDate:minimumPage];
+            targetPage = [self.calendarWrapper dateByAddingUnit:NSCalendarUnitWeekOfYear value:sections toDate:minimumPage options:0];
             break;
         }
     }
