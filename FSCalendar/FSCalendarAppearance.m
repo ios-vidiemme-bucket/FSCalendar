@@ -471,16 +471,6 @@
     return self.eventDefaultColor;
 }
 
-- (void)setCellShape:(FSCalendarCellShape)cellShape
-{
-    self.borderRadius = 1-cellShape;
-}
-
-- (FSCalendarCellShape)cellShape
-{
-    return self.borderRadius==1.0?FSCalendarCellShapeCircle:FSCalendarCellShapeRectangle;
-}
-
 - (void)setTitleTextSize:(CGFloat)titleTextSize
 {
     self.titleFont = [UIFont fontWithName:self.titleFont.fontName size:titleTextSize];
@@ -506,9 +496,5 @@
     [self.calendar configureAppearance];
 }
 
-- (void)setAdjustsFontSizeToFitContentSize:(BOOL)adjustsFontSizeToFitContentSize {}
-- (BOOL)adjustsFontSizeToFitContentSize { return YES; }
-
 @end
-
 
