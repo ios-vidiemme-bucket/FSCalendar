@@ -21,6 +21,7 @@
 #import "FSCalendarCell.h"
 #import "FSCalendarWeekdayView.h"
 #import "FSCalendarHeaderView.h"
+#import "FSCalendarWeeknumberAsideView.h"
 
 //! Project version number for FSCalendar.
 FOUNDATION_EXPORT double FSCalendarVersionNumber;
@@ -345,6 +346,11 @@ IB_DESIGNABLE
 @property (assign, nonatomic) IBInspectable CGFloat weekdayHeight;
 
 /**
+ The width of weeknumber aside of the calendar. Give a '0' to remove the aside.
+ */
+@property (assign, nonatomic) IBInspectable CGFloat weeknumberWidth;
+
+/**
  The weekday view of the calendar
  */
 @property (strong, nonatomic) FSCalendarWeekdayView *calendarWeekdayView;
@@ -353,6 +359,11 @@ IB_DESIGNABLE
  The header view of the calendar
  */
 @property (strong, nonatomic) FSCalendarHeaderView *calendarHeaderView;
+
+/**
+ The weeknumber view of the calendar
+ */
+@property (strong, nonatomic) FSCalendarWeeknumberAsideView *calendarWeeknumberAsideView;
 
 /**
  A Boolean value that determines whether users can select a date.

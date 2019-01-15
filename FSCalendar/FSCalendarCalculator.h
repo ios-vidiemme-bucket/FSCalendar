@@ -21,6 +21,9 @@ typedef struct FSCalendarCoordinate FSCalendarCoordinate;
 
 @property (readonly, nonatomic) NSInteger numberOfSections;
 
+@property (readonly, assign, nonatomic) NSInteger numberOfWeeks;
+@property (readonly, assign, nonatomic) NSInteger numberOfMonths;
+
 - (instancetype)initWithCalendar:(FSCalendar *)calendar;
 
 - (NSDate *)safeDateForDate:(NSDate *)date;

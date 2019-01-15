@@ -223,9 +223,11 @@
         case FSCalendarScopeWeek: {
             self.collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
             self.calendar.calendarHeaderView.scrollDirection = self.collectionViewLayout.scrollDirection;
+            self.calendar.calendarWeeknumberAsideView.scrollDirection = self.collectionViewLayout.scrollDirection;
             self.calendar.needsAdjustingViewFrame = YES;
             [self.collectionView reloadData];
             [self.calendar.calendarHeaderView reloadData];
+            [self.calendar.calendarWeeknumberAsideView reloadData];
             break;
         }
         case FSCalendarScopeMonth: {
@@ -390,12 +392,14 @@
     self.calendar.contentView.fs_height = CGRectGetHeight(self.transitionAttributes.targetBounds);
     self.collectionViewLayout.scrollDirection = (UICollectionViewScrollDirection)self.calendar.scrollDirection;
     self.calendar.calendarHeaderView.scrollDirection = self.collectionViewLayout.scrollDirection;
+    self.calendar.calendarWeeknumberAsideView.scrollDirection = self.collectionViewLayout.scrollDirection;
     self.calendar.needsAdjustingViewFrame = YES;
     
     [CATransaction begin];
     [CATransaction setDisableActions:NO];
     [self.collectionView reloadData];
     [self.calendar.calendarHeaderView reloadData];
+    [self.calendar.calendarWeeknumberAsideView reloadData];
     [self.calendar layoutIfNeeded];
     [CATransaction commit];
     

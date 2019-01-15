@@ -12,6 +12,7 @@
 
 CGFloat const FSCalendarStandardHeaderHeight = 40;
 CGFloat const FSCalendarStandardWeekdayHeight = 25;
+CGFloat const FSCalendarStandardWeeknumberWidth = 40;
 CGFloat const FSCalendarStandardMonthlyPageHeight = 300.0;
 CGFloat const FSCalendarStandardWeeklyPageHeight = 108+1/3.0;
 CGFloat const FSCalendarStandardCellDiameter = 100/3.0;

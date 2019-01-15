@@ -67,6 +67,7 @@ NS_ASSUME_NONNULL_END
     calendar.currentPage = [self.dateFormatter dateFromString:@"2016-06-01"];
     calendar.firstWeekday = 2;
     calendar.scrollDirection = FSCalendarScrollDirectionVertical;
+    calendar.weeknumberWidth = FSCalendarStandardWeeknumberWidth;
     [self.view addSubview:calendar];
     self.calendar = calendar;
     

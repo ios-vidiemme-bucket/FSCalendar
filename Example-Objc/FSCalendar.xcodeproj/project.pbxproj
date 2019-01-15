@@ -79,6 +79,9 @@
 		3A561A9C21EB9D9E00A7B22D /* NSDateFormatter+Locale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A561A9721EB9D9D00A7B22D /* NSDateFormatter+Locale.m */; };
 		3A561A9D21EB9D9E00A7B22D /* NSDateFormatter+Locale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A561A9721EB9D9D00A7B22D /* NSDateFormatter+Locale.m */; };
 		3A561A9E21EB9D9E00A7B22D /* NSCalendar+Locale.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A561A9821EB9D9D00A7B22D /* NSCalendar+Locale.h */; };
+		3A561AA421EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A561AA221EC9B7E00A7B22D /* FSCalendarWeeknumberAsideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A561AA521EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A561AA321EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m */; };
+		3A561AA621EC9B8D00A7B22D /* FSCalendarWeeknumberAsideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A561AA321EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m */; };
 		50F2ADE8216D954A00CC481F /* FSCalendarSeparatorDecorationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 50F2ADE6216D954A00CC481F /* FSCalendarSeparatorDecorationView.h */; };
 		50F2ADE9216D954A00CC481F /* FSCalendarSeparatorDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F2ADE7216D954A00CC481F /* FSCalendarSeparatorDecorationView.m */; };
 		50F2ADEA216D954A00CC481F /* FSCalendarSeparatorDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F2ADE7216D954A00CC481F /* FSCalendarSeparatorDecorationView.m */; };
@@ -195,6 +198,8 @@
 		3A561A9621EB9D9D00A7B22D /* NSDateFormatter+Locale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Locale.h"; sourceTree = "<group>"; };
 		3A561A9721EB9D9D00A7B22D /* NSDateFormatter+Locale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Locale.m"; sourceTree = "<group>"; };
 		3A561A9821EB9D9D00A7B22D /* NSCalendar+Locale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Locale.h"; sourceTree = "<group>"; };
+		3A561AA221EC9B7E00A7B22D /* FSCalendarWeeknumberAsideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarWeeknumberAsideView.h; sourceTree = "<group>"; };
+		3A561AA321EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarWeeknumberAsideView.m; sourceTree = "<group>"; };
 		50F2ADE6216D954A00CC481F /* FSCalendarSeparatorDecorationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCalendarSeparatorDecorationView.h; sourceTree = "<group>"; };
 		50F2ADE7216D954A00CC481F /* FSCalendarSeparatorDecorationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCalendarSeparatorDecorationView.m; sourceTree = "<group>"; };
 		EE0D7FC71B89C5D3003C287B /* FSCalendarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSCalendarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -314,6 +319,8 @@
 				30B0BAC71B8D8E22004B9476 /* FSCalendarHeaderView.m */,
 				30A495521DCAD9E6000B2F31 /* FSCalendarWeekdayView.h */,
 				30A495531DCAD9E6000B2F31 /* FSCalendarWeekdayView.m */,
+				3A561AA221EC9B7E00A7B22D /* FSCalendarWeeknumberAsideView.h */,
+				3A561AA321EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m */,
 				30FCB3941BAAD112002B87AD /* FSCalendarStickyHeader.h */,
 				30FCB3951BAAD112002B87AD /* FSCalendarStickyHeader.m */,
 				30CEF8FE1C950C1F008EAFB1 /* FSCalendarTransitionCoordinator.h */,
@@ -534,6 +541,7 @@
 				30DBE3C41DC641AD005A22B7 /* FSCalendarCalculator.h in Headers */,
 				30CEF9001C950C1F008EAFB1 /* FSCalendarTransitionCoordinator.h in Headers */,
 				30B0BB031B8D9B6D004B9476 /* FSCalendarDynamicHeader.h in Headers */,
+				3A561AA421EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.h in Headers */,
 				3A561A8D21EB9CA800A7B22D /* FSGregorianCalendar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +731,7 @@
 				3A561A9421EB9CF300A7B22D /* FSMerchandisingCalendarYear.m in Sources */,
 				EE638CCE1B89DBD80006DD1A /* StoryboardExampleViewController.m in Sources */,
 				EECA10F81BA9C0E400945B83 /* FullScreenExampleViewController.m in Sources */,
+				3A561AA621EC9B8D00A7B22D /* FSCalendarWeeknumberAsideView.m in Sources */,
 				30DBE3C51DC641AD005A22B7 /* FSCalendarCalculator.m in Sources */,
 				EE638CC91B89DB940006DD1A /* CalendarConfigViewController.m in Sources */,
 				30B0BAD01B8D8E23004B9476 /* FSCalendar.m in Sources */,
@@ -765,6 +774,7 @@
 				30F5D8561B9FC33400C1C201 /* FSCalendar.m in Sources */,
 				30B0BAF61B8D9AC1004B9476 /* FSCalendarAppearance.m in Sources */,
 				EEC9C03B1BDC9E7000383A07 /* FSCalendarCollectionView.m in Sources */,
+				3A561AA521EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m in Sources */,
 				30B0BAF71B8D9AC1004B9476 /* FSCalendarCell.m in Sources */,
 				30DBE3C61DC641AD005A22B7 /* FSCalendarCalculator.m in Sources */,
 				50F2ADEA216D954A00CC481F /* FSCalendarSeparatorDecorationView.m in Sources */,

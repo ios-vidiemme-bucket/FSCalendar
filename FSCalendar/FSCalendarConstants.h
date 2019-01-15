@@ -15,6 +15,7 @@
 
 CG_EXTERN CGFloat const FSCalendarStandardHeaderHeight;
 CG_EXTERN CGFloat const FSCalendarStandardWeekdayHeight;
+CG_EXTERN CGFloat const FSCalendarStandardWeeknumberWidth;
 CG_EXTERN CGFloat const FSCalendarStandardMonthlyPageHeight;
 CG_EXTERN CGFloat const FSCalendarStandardWeeklyPageHeight;
 CG_EXTERN CGFloat const FSCalendarStandardCellDiameter;

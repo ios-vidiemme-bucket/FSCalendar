@@ -226,7 +226,6 @@
                 _calendar.appearance.headerTitleColor = FSCalendarStandardTitleTextColor;
                 _calendar.appearance.eventDefaultColor = FSCalendarStandardEventDotColor;
                 _calendar.appearance.selectionColor = FSCalendarStandardSelectionColor;
-                _calendar.appearance.headerDateFormat = @"MMMM yyyy";
                 _calendar.appearance.todayColor = FSCalendarStandardTodayColor;
                 _calendar.appearance.borderRadius = 1.0;
                 _calendar.appearance.headerMinimumDissolvedAlpha = 0.2;
@@ -237,7 +236,6 @@
                 _calendar.appearance.headerTitleColor = [UIColor darkGrayColor];
                 _calendar.appearance.eventDefaultColor = [UIColor greenColor];
                 _calendar.appearance.selectionColor = [UIColor blueColor];
-                _calendar.appearance.headerDateFormat = @"yyyy-MM";
                 _calendar.appearance.todayColor = [UIColor redColor];
                 _calendar.appearance.borderRadius = 1.0;
                 _calendar.appearance.headerMinimumDissolvedAlpha = 0.0;
@@ -249,7 +247,6 @@
                 _calendar.appearance.headerTitleColor = [UIColor redColor];
                 _calendar.appearance.eventDefaultColor = [UIColor greenColor];
                 _calendar.appearance.selectionColor = [UIColor blueColor];
-                _calendar.appearance.headerDateFormat = @"yyyy/MM";
                 _calendar.appearance.todayColor = [UIColor orangeColor];
                 _calendar.appearance.borderRadius = 0;
                 _calendar.appearance.headerMinimumDissolvedAlpha = 1.0;

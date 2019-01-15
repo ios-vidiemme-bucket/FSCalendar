@@ -46,10 +46,12 @@
     calendar.delegate = self;
     calendar.swipeToChooseGesture.enabled = YES;
     calendar.allowsMultipleSelection = YES;
+    calendar.weeknumberWidth = FSCalendarStandardWeeknumberWidth;
     [view addSubview:calendar];
     self.calendar = calendar;
     
     calendar.calendarHeaderView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.1];
+    calendar.calendarWeeknumberAsideView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.1];
     calendar.calendarWeekdayView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.1];
     calendar.appearance.eventSelectionColor = [UIColor whiteColor];
     calendar.appearance.eventOffset = CGPointMake(0, -7);

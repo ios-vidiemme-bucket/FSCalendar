@@ -9,6 +9,7 @@
 #import "FSCalendar.h"
 #import "FSCalendarHeaderView.h"
 #import "FSCalendarWeekdayView.h"
+#import "FSCalendarWeeknumberAsideView.h"
 #import "FSCalendarStickyHeader.h"
 #import "FSCalendarCollectionViewLayout.h"
 
@@ -68,6 +69,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 @property (assign, nonatomic) BOOL                       needsRequestingBoundingDates;
 @property (assign, nonatomic) CGFloat                    preferredHeaderHeight;
 @property (assign, nonatomic) CGFloat                    preferredWeekdayHeight;
+@property (assign, nonatomic) CGFloat                    preferredWeeknumberWidth;
 @property (assign, nonatomic) CGFloat                    preferredRowHeight;
 @property (assign, nonatomic) FSCalendarOrientation      orientation;
 
@@ -169,10 +171,12 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     
     _headerHeight     = FSCalendarAutomaticDimension;
     _weekdayHeight    = FSCalendarAutomaticDimension;
+    _weeknumberWidth  = FSCalendarAutomaticDimension;
     _rowHeight        = FSCalendarStandardRowHeight*MAX(1, FSCalendarDeviceIsIPad*1.5);
     
     _preferredHeaderHeight  = FSCalendarAutomaticDimension;
     _preferredWeekdayHeight = FSCalendarAutomaticDimension;
+    _preferredWeeknumberWidth = 0;
     _preferredRowHeight     = FSCalendarAutomaticDimension;
     
     _scrollDirection = FSCalendarScrollDirectionHorizontal;
@@ -300,13 +304,14 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         CGFloat headerHeight = self.preferredHeaderHeight;
         CGFloat weekdayHeight = self.preferredWeekdayHeight;
         CGFloat rowHeight = self.preferredRowHeight;
+        CGFloat weeknumberWidth = self.preferredWeeknumberWidth;
         CGFloat padding = 5;
         if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
             rowHeight = FSCalendarFloor(rowHeight*2)*0.5; // Round to nearest multiple of 0.5. e.g. (16.8->16.5),(16.2->16.0)
         }
         
         self.calendarHeaderView.frame = CGRectMake(0, 0, self.fs_width, headerHeight);
-        self.calendarWeekdayView.frame = CGRectMake(0, self.calendarHeaderView.fs_bottom, self.contentView.fs_width, weekdayHeight);
+        self.calendarWeekdayView.frame = CGRectMake(weeknumberWidth, self.calendarHeaderView.fs_bottom, self.contentView.fs_width - weeknumberWidth, weekdayHeight);
 
         _deliver.frame = CGRectMake(self.calendarHeaderView.fs_left, self.calendarHeaderView.fs_top, self.calendarHeaderView.fs_width, headerHeight+weekdayHeight);
         _deliver.hidden = self.calendarHeaderView.hidden;
@@ -314,13 +319,15 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
             switch (self.transitionCoordinator.representingScope) {
                 case FSCalendarScopeMonth: {
                     CGFloat contentHeight = rowHeight*6 + padding*2;
-                    _daysContainer.frame = CGRectMake(0, headerHeight+weekdayHeight, self.fs_width, contentHeight);
+                    self.calendarWeeknumberAsideView.frame = CGRectMake(0, self.calendarWeekdayView.fs_bottom + padding, weeknumberWidth, contentHeight - 2*padding);
+                    _daysContainer.frame = CGRectMake(weeknumberWidth, headerHeight + weekdayHeight, self.fs_width - weeknumberWidth, contentHeight);
                     _collectionView.frame = CGRectMake(0, 0, _daysContainer.fs_width, contentHeight);
                     break;
                 }
                 case FSCalendarScopeWeek: {
                     CGFloat contentHeight = rowHeight + padding*2;
-                    _daysContainer.frame = CGRectMake(0, headerHeight+weekdayHeight, self.fs_width, contentHeight);
+                    self.calendarWeeknumberAsideView.frame = CGRectMake(0, self.calendarWeekdayView.fs_bottom, weeknumberWidth, contentHeight);
+                    _daysContainer.frame = CGRectMake(weeknumberWidth, headerHeight + weekdayHeight, self.fs_width - weeknumberWidth, contentHeight);
                     _collectionView.frame = CGRectMake(0, 0, _daysContainer.fs_width, contentHeight);
                     break;
                 }
@@ -328,7 +335,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         } else {
             
             CGFloat contentHeight = _contentView.fs_height;
-            _daysContainer.frame = CGRectMake(0, 0, self.fs_width, contentHeight);
+            self.calendarWeeknumberAsideView.frame = CGRectMake(0, 0, weeknumberWidth, contentHeight);
+            _daysContainer.frame = CGRectMake(weeknumberWidth, 0, self.fs_width - weeknumberWidth, contentHeight);
             _collectionView.frame = _daysContainer.bounds;
             
         }
@@ -586,6 +594,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
             }
         }
         _calendarHeaderView.scrollOffset = scrollOffset;
+        _calendarWeeknumberAsideView.scrollOffset = scrollOffset;
     }
 }
 
@@ -663,9 +672,11 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
             case FSCalendarScopeMonth: {
                 _collectionViewLayout.scrollDirection = (UICollectionViewScrollDirection)scrollDirection;
                 _calendarHeaderView.scrollDirection = _collectionViewLayout.scrollDirection;
+                _calendarWeeknumberAsideView.scrollDirection = _collectionViewLayout.scrollDirection;
                 if (self.hasValidateVisibleLayout) {
                     [_collectionView reloadData];
                     [_calendarHeaderView reloadData];
+                    [_calendarWeeknumberAsideView reloadData];
                 }
                 _needsAdjustingViewFrame = YES;
                 [self setNeedsLayout];
@@ -860,7 +871,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         
         _collectionView.scrollEnabled = scrollEnabled;
         _calendarHeaderView.scrollEnabled = scrollEnabled;
-        
+        _calendarWeeknumberAsideView.scrollEnabled = scrollEnabled;
+
         [self invalidateLayout];
     }
 }
@@ -937,6 +949,16 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         }
     }
     return _preferredRowHeight;
+}
+
+- (CGFloat)preferredWeeknumberWidth {
+    if (_weeknumberWidth == FSCalendarAutomaticDimension) {
+        if (_preferredWeeknumberWidth == FSCalendarAutomaticDimension) {
+            _preferredWeeknumberWidth = FSCalendarStandardWeeknumberWidth;
+        }
+        return _preferredWeeknumberWidth;
+    }
+    return _weeknumberWidth;
 }
 
 - (BOOL)floatingMode
@@ -1181,6 +1203,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     }
     if (!animated) {
         self.calendarHeaderView.scrollOffset = scrollOffset;
+        self.calendarWeeknumberAsideView.scrollOffset = scrollOffset;
     }
 }
 
@@ -1297,13 +1320,19 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     if (!self.floatingMode) {
         
         if (!_calendarHeaderView) {
-            
             FSCalendarHeaderView *headerView = [[FSCalendarHeaderView alloc] initWithFrame:CGRectZero];
             headerView.calendar = self;
             headerView.scrollEnabled = _scrollEnabled;
             [_contentView addSubview:headerView];
             self.calendarHeaderView = headerView;
-            
+        }
+        
+        if (!_calendarWeeknumberAsideView) {
+            FSCalendarWeeknumberAsideView *weeknumberAsideView = [[FSCalendarWeeknumberAsideView alloc] initWithFrame:CGRectZero];
+            weeknumberAsideView.calendar = self;
+            weeknumberAsideView.scrollEnabled = _scrollEnabled;
+            [_contentView addSubview:weeknumberAsideView];
+            self.calendarWeeknumberAsideView = weeknumberAsideView;
         }
         
         if (!_calendarWeekdayView) {
@@ -1331,6 +1360,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     } else {
         
         [self.calendarHeaderView removeFromSuperview];
+        [self.calendarWeeknumberAsideView removeFromSuperview];
         [self.deliver removeFromSuperview];
         [self.calendarWeekdayView removeFromSuperview];
         
@@ -1341,6 +1371,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     
     _preferredHeaderHeight = FSCalendarAutomaticDimension;
     _preferredWeekdayHeight = FSCalendarAutomaticDimension;
+    _preferredWeeknumberWidth = 0;
     _preferredRowHeight = FSCalendarAutomaticDimension;
     _needsAdjustingViewFrame = YES;
     [self setNeedsLayout];
@@ -1349,6 +1380,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 - (void)invalidateHeaders
 {
     [self.calendarHeaderView.collectionView reloadData];
+    [self.calendarWeeknumberAsideView.collectionView reloadData];
     [self.visibleStickyHeaders makeObjectsPerformSelector:@selector(configureAppearance)];
 }
 
@@ -1576,6 +1608,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     [self.visibleCells makeObjectsPerformSelector:@selector(configureAppearance)];
     [self.visibleStickyHeaders makeObjectsPerformSelector:@selector(configureAppearance)];
     [self.calendarHeaderView configureAppearance];
+    [self.calendarWeeknumberAsideView configureAppearance];
     [self.calendarWeekdayView configureAppearance];
 }
 
