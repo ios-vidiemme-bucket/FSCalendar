@@ -180,6 +180,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     _selectedDates = [NSMutableArray arrayWithCapacity:1];
     _visibleSectionHeaders = [NSMapTable weakToWeakObjectsMapTable];
     
+    _adjustsBoundingRectWhenChangingMonths = YES;
+    
     _pagingEnabled = YES;
     _scrollEnabled = YES;
     _needsAdjustingViewFrame = YES;
@@ -1285,7 +1287,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     _calendarWrapper.locale = _locale;
     _calendarWrapper.timeZone = _timeZone;
     _calendarWrapper.firstWeekday = _firstWeekday;
-    _formatter.calendar = _gregorian;
+    _formatter.calendar = _calendarWrapper.calendar;
     _formatter.timeZone = _timeZone;
     _formatter.locale = _locale;
 }

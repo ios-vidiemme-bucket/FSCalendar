@@ -256,7 +256,7 @@
             if (targetScope == FSCalendarScopeWeek) {
                 [dates addObject:self.calendar.currentPage];
             } else {
-                [dates addObject:[self.calendar.gregorian dateByAddingUnit:NSCalendarUnitDay value:3 toDate:self.calendar.currentPage options:0]];
+                [dates addObject:[self.calendar.calendarWrapper dateByAddingUnit:NSCalendarUnitDay value:3 toDate:self.calendar.currentPage options:0]];
             }
             dates.copy;
         });
@@ -274,7 +274,7 @@
         coordinate.row;
     });
     attributes.targetPage = ({
-        NSDate *targetPage = targetScope == FSCalendarScopeMonth ? [self.calendar.gregorian fs_firstDayOfMonth:attributes.focusedDate] : [self.calendar.gregorian fs_middleDayOfWeek:attributes.focusedDate];
+        NSDate *targetPage = targetScope == FSCalendarScopeMonth ? [self.calendar.calendarWrapper fs_firstDayOfMonth:attributes.focusedDate] : [self.calendar.calendarWrapper fs_middleDayOfWeek:attributes.focusedDate];
         targetPage;
     });
     attributes.targetBounds = [self boundingRectForScope:attributes.targetScope page:attributes.targetPage];
