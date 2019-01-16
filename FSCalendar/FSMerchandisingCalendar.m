@@ -95,19 +95,34 @@
 
 - (BOOL)isDate:(NSDate *)date1 equalToDate:(NSDate *)date2 toUnitGranularity:(NSCalendarUnit)unit {
 
-    if (unit == NSCalendarUnitMonth) {
-        return [self compareDate:date1 toDate:date2 toUnitGranularity:unit] == NSOrderedSame;
-    } else {
-        return [self.calendar isDate:date1 equalToDate:date2 toUnitGranularity:unit];
-    }
+    return [self compareDate:date1 toDate:date2 toUnitGranularity:unit] == NSOrderedSame;
 }
 
+- (NSDateComponents *)components:(NSCalendarUnit)unitFlags fromDate:(NSDate *)startingDate toDate:(NSDate *)resultDate options:(NSCalendarOptions)opts {
+    if ((unitFlags & (NSCalendarUnitMonth | NSCalendarUnitYear)) != 0) {
+        
+        NSDateComponents *comps = [self.calendar components:unitFlags fromDate:startingDate toDate:resultDate options:opts];
 
+        NSInteger startingDateYear = [[self fs_yearForDate:startingDate] integerValue];
+        NSInteger endDateYear = [[self fs_yearForDate:resultDate] integerValue];
+        
+        NSInteger month = (endDateYear - startingDateYear) * 12 - [self fs_monthForDate:startingDate] + [self fs_monthForDate:resultDate];
+        
+        if (unitFlags & NSCalendarUnitMonth){
+            comps.month = month;
+        }
+        if (unitFlags & NSCalendarUnitYear) {
+            comps.year = month / 12;
+        }
+        return comps;
+    } else {
+        return [self.calendar components:unitFlags fromDate:startingDate toDate:resultDate options:opts];
+    }
+}
 
 - (nullable NSDate *)fs_firstDayOfMonth:(NSDate *)month{
     if (!month) return nil;
     
-    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:month];
     for (FSMerchandisingCalendarYear *merchandisingYear in self.merchandisingYears) {
         for (FSMerchandisingCalendarMonth *merchandisingMonth in merchandisingYear.months) {
             if ([merchandisingMonth.startDay compare:month] != NSOrderedDescending && [merchandisingMonth.endDay compare:month] != NSOrderedAscending) {
@@ -117,6 +132,7 @@
     }
 
     //Fallback to regular gregorian calendar when out of bounds
+    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:month];
     components.day = 1;
     return [self.calendar dateFromComponents:components];
 }
@@ -156,7 +172,6 @@
 - (nullable NSDate *)fs_lastDayOfMonth:(NSDate *)month{
     if (!month) return nil;
     
-    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:month];
     for (FSMerchandisingCalendarYear *merchandisingYear in self.merchandisingYears) {
         for (FSMerchandisingCalendarMonth *merchandisingMonth in merchandisingYear.months) {
             if ([merchandisingMonth.startDay compare:month] != NSOrderedDescending && [merchandisingMonth.endDay compare:month] != NSOrderedAscending) {
@@ -166,6 +181,7 @@
     }
     
     //Fallback to regular gregorian calendar when out of bounds
+    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:month];
     components.month++;
     components.day = 0;
     return [self.calendar dateFromComponents:components];
