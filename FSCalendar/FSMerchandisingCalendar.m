@@ -261,6 +261,19 @@
     return [self.weekDateFormatter stringFromDate:date];
 }
 
+- (NSInteger)fs_monthForDate:(NSDate *)date{
+    
+    for (FSMerchandisingCalendarYear *merchandisingYear in self.merchandisingYears) {
+        for (FSMerchandisingCalendarMonth *merchandisingMonth in merchandisingYear.months) {
+            if ([merchandisingMonth.startDay compare:date] != NSOrderedDescending && [merchandisingMonth.endDay compare:date] != NSOrderedAscending) {
+                return merchandisingMonth.index;
+            }
+        }
+    }
+    
+    return [self.calendar component:NSCalendarUnitMonth fromDate:date];
+}
+
 - (nullable NSString *)fs_monthNameForDate:(NSDate *)date{
     
     for (FSMerchandisingCalendarYear *merchandisingYear in self.merchandisingYears) {
