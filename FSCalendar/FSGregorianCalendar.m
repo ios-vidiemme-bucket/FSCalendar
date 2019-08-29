@@ -38,7 +38,7 @@
     return self;
 }
 
-- (nullable NSDate *)fs_firstDayOfMonth:(NSDate *)month{
+- (nullable NSDate *)fs_firstDayOfMonth:(NSDate * _Nullable)month{
     if (!month) return nil;
     
     NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:month];
@@ -46,11 +46,11 @@
     return [self.calendar dateFromComponents:components];
 }
 
-- (nullable NSDate *)fs_firstDayOfMonthByAddingMonths:(NSInteger)months toDate:(NSDate *)startDate{
+- (nullable NSDate *)fs_firstDayOfMonthByAddingMonths:(NSInteger)months toDate:(NSDate * _Nullable)startDate{
     return [self fs_firstDayOfMonth: [self.calendar dateByAddingUnit:NSCalendarUnitMonth value:months toDate:startDate options:0]];
 }
 
-- (nullable NSDate *)fs_lastDayOfMonth:(NSDate *)month{
+- (nullable NSDate *)fs_lastDayOfMonth:(NSDate * _Nullable)month{
     if (!month) return nil;
     
     NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:month];
@@ -59,7 +59,7 @@
     return [self.calendar dateFromComponents:components];
 }
 
-- (nullable NSDate *)fs_firstDayOfWeek:(NSDate *)week{
+- (nullable NSDate *)fs_firstDayOfWeek:(NSDate * _Nullable)week{
     if (!week) return nil;
     
     NSDateComponents *weekdayComponents = [self.calendar components:NSCalendarUnitWeekday fromDate:week];
@@ -72,7 +72,7 @@
     return firstDayOfWeek;
 }
 
-- (nullable NSDate *)fs_lastDayOfWeek:(NSDate *)week{
+- (nullable NSDate *)fs_lastDayOfWeek:(NSDate * _Nullable)week{
     if (!week) return nil;
     
     NSDateComponents *weekdayComponents = [self.calendar components:NSCalendarUnitWeekday fromDate:week];
@@ -85,7 +85,7 @@
     return lastDayOfWeek;
 }
 
-- (nullable NSDate *)fs_middleDayOfWeek:(NSDate *)week{
+- (nullable NSDate *)fs_middleDayOfWeek:(NSDate * _Nullable)week{
     if (!week) return nil;
     
     NSDateComponents *weekdayComponents = [self.calendar components:NSCalendarUnitWeekday fromDate:week];
@@ -98,7 +98,7 @@
     return middleDayOfWeek;
 }
 
-- (NSInteger)fs_numberOfDaysInMonth:(NSDate *)month{
+- (NSInteger)fs_numberOfDaysInMonth:(NSDate * _Nullable)month{
     if (!month) return 0;
     
     NSRange days = [self.calendar rangeOfUnit:NSCalendarUnitDay
@@ -107,15 +107,15 @@
     return days.length;
 }
 
-- (nullable NSString *)fs_weekNumberForDate:(NSDate *)date{
+- (nullable NSString *)fs_weekNumberForDate:(NSDate * _Nullable)date{
     return [self.weekDateFormatter stringFromDate:date];
 }
 
-- (nullable NSString *)fs_monthNameForDate:(NSDate *)date{
+- (nullable NSString *)fs_monthNameForDate:(NSDate * _Nullable)date{
     return [self.monthDateFormatter stringFromDate:date];
 }
 
-- (nullable NSString *)fs_yearForDate:(NSDate *)date{
+- (nullable NSString *)fs_yearForDate:(NSDate * _Nullable)date{
     return [self.yearDateFormatter stringFromDate:date];
 }
 

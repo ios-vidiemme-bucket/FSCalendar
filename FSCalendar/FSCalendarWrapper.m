@@ -15,7 +15,7 @@
 
 @implementation FSCalendarWrapper
 
-- (id)initWithCalendar:(NSCalendar*)calendar{
+- (id)initWithCalendar:(NSCalendar * _Nonnull)calendar{
     if (self = [super init]){
         _calendar = calendar;
     }
@@ -46,39 +46,39 @@
     @throw [NSException exceptionWithName:@"Unimplemented" reason:@"This method must be implemented by a subclass" userInfo:nil];
 }
 
-- (NSInteger)fs_numberOfDaysInMonth:(NSDate *)month{
+- (NSInteger)fs_numberOfDaysInMonth:(NSDate * _Nullable)month{
     @throw [NSException exceptionWithName:@"Unimplemented" reason:@"This method must be implemented by a subclass" userInfo:nil];
 }
 
-- (nullable NSString *)fs_weekNumberForDate:(NSDate *)date{
+- (nullable NSString *)fs_weekNumberForDate:(NSDate * _Nullable)date{
     @throw [NSException exceptionWithName:@"Unimplemented" reason:@"This method must be implemented by a subclass" userInfo:nil];
 }
 
-- (nullable NSString *)fs_monthNameForDate:(NSDate *)date{
+- (nullable NSString *)fs_monthNameForDate:(NSDate * _Nullable)date{
     @throw [NSException exceptionWithName:@"Unimplemented" reason:@"This method must be implemented by a subclass" userInfo:nil];
 }
 
-- (nullable NSString *)fs_yearForDate:(NSDate *)date{
+- (nullable NSString *)fs_yearForDate:(NSDate * _Nullable)date{
     @throw [NSException exceptionWithName:@"Unimplemented" reason:@"This method must be implemented by a subclass" userInfo:nil];
 }
 
-- (NSCalendarIdentifier)calendarIdentifier{
+- (NSCalendarIdentifier _Nullable)calendarIdentifier{
     return _calendar.calendarIdentifier;
 }
 
-- (NSLocale *)locale{
+- (NSLocale * _Nullable)locale{
     return _calendar.locale;
 }
 
-- (void)setLocale:(NSLocale *)locale{
+- (void)setLocale:(NSLocale * _Nullable)locale{
     _calendar.locale = locale;
 }
 
-- (NSTimeZone *)timeZone{
+- (NSTimeZone * _Nullable)timeZone{
     return _calendar.timeZone;
 }
 
-- (void)setTimeZone:(NSTimeZone *)timeZone{
+- (void)setTimeZone:(NSTimeZone * _Nullable)timeZone{
     _calendar.timeZone = timeZone;
 }
 
@@ -199,19 +199,19 @@
 //    return [_calendar rangeOfUnit:unit startDate:datep interval:tip forDate:date];
 //}
 
-- (nullable NSDate *)dateFromComponents:(NSDateComponents *)comps{
+- (nullable NSDate *)dateFromComponents:(NSDateComponents * _Nonnull)comps{
     return [_calendar dateFromComponents:comps];
 }
 
-- (NSDateComponents *)components:(NSCalendarUnit)unitFlags fromDate:(NSDate *)date{
+- (NSDateComponents * _Nullable)components:(NSCalendarUnit)unitFlags fromDate:(NSDate * _Nullable)date{
     return [_calendar components:unitFlags fromDate:date];
 }
 
-- (nullable NSDate *)dateByAddingComponents:(NSDateComponents *)comps toDate:(NSDate *)date options:(NSCalendarOptions)opts{
+- (nullable NSDate *)dateByAddingComponents:(NSDateComponents * _Nonnull)comps toDate:(NSDate * _Nullable)date options:(NSCalendarOptions)opts{
     return [_calendar dateByAddingComponents:comps toDate:date options:opts];
 }
 
-- (NSDateComponents *)components:(NSCalendarUnit)unitFlags fromDate:(NSDate *)startingDate toDate:(NSDate *)resultDate options:(NSCalendarOptions)opts{
+- (NSDateComponents * _Nullable)components:(NSCalendarUnit)unitFlags fromDate:(NSDate * _Nullable)startingDate toDate:(NSDate * _Nullable)resultDate options:(NSCalendarOptions)opts{
     return [_calendar components:unitFlags fromDate:startingDate toDate:resultDate options:opts];
 }
 
@@ -227,7 +227,7 @@
 //    return [_calendar getHour:hourValuePointer minute:minuteValuePointer second:secondValuePointer nanosecond:nanosecondValuePointer fromDate:date];
 //}
 
-- (NSInteger)component:(NSCalendarUnit)unit fromDate:(NSDate *)date {
+- (NSInteger)component:(NSCalendarUnit)unit fromDate:(NSDate * _Nullable)date {
     return [_calendar component:unit fromDate:date];
 }
 
@@ -247,15 +247,15 @@
 //    return [_calendar componentsInTimeZone:timezone fromDate:date];
 //}
 
-- (NSComparisonResult)compareDate:(NSDate *)date1 toDate:(NSDate *)date2 toUnitGranularity:(NSCalendarUnit)unit {
+- (NSComparisonResult)compareDate:(NSDate * _Nullable)date1 toDate:(NSDate * _Nullable)date2 toUnitGranularity:(NSCalendarUnit)unit {
     return [_calendar compareDate:date1 toDate:date2 toUnitGranularity:unit];
 }
 
-- (BOOL)isDate:(NSDate *)date1 equalToDate:(NSDate *)date2 toUnitGranularity:(NSCalendarUnit)unit {
+- (BOOL)isDate:(NSDate * _Nullable)date1 equalToDate:(NSDate * _Nullable)date2 toUnitGranularity:(NSCalendarUnit)unit {
     return [_calendar isDate:date1 equalToDate:date2 toUnitGranularity:unit];
 }
 
-- (BOOL)isDate:(NSDate *)date1 inSameDayAsDate:(NSDate *)date2{
+- (BOOL)isDate:(NSDate * _Nullable)date1 inSameDayAsDate:(NSDate * _Nullable)date2{
     return [_calendar isDate:date1 inSameDayAsDate:date2];
 }
 
@@ -287,7 +287,7 @@
 //    return [_calendar components:unitFlags fromDateComponents:startingDateComp toDateComponents:resultDateComp options:options];
 //}
 
-- (nullable NSDate *)dateByAddingUnit:(NSCalendarUnit)unit value:(NSInteger)value toDate:(NSDate *)date options:(NSCalendarOptions)options {
+- (nullable NSDate *)dateByAddingUnit:(NSCalendarUnit)unit value:(NSInteger)value toDate:(NSDate * _Nullable)date options:(NSCalendarOptions)options {
     return [_calendar dateByAddingUnit:unit value:value toDate:date options:options];
 }
 
@@ -312,7 +312,7 @@
 //    return [_calendar dateBySettingUnit:unit value:v ofDate:date options:opts];
 //}
 
-- (nullable NSDate *)dateBySettingHour:(NSInteger)h minute:(NSInteger)m second:(NSInteger)s ofDate:(NSDate *)date options:(NSCalendarOptions)opts{
+- (nullable NSDate *)dateBySettingHour:(NSInteger)h minute:(NSInteger)m second:(NSInteger)s ofDate:(NSDate * _Nullable)date options:(NSCalendarOptions)opts{
     return [_calendar dateBySettingHour:h minute:m second:s ofDate:date options:opts];
 }
 
