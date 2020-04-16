@@ -1584,6 +1584,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         _needsRequestingBoundingDates = NO;
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         dateFormatter.dateFormat = @"yyyy-MM-dd";
 
         NSDate *newMin = [self.dataSourceProxy minimumDateForCalendar:self]?:[dateFormatter dateFromString:@"1970-01-01"];
