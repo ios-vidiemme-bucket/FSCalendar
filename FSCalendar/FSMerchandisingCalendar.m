@@ -12,6 +12,8 @@
 #import "FSMerchandisingCalendarMonth.h"
 #import "NSDateFormatter+Locale.h"
 
+#import "NSDateFormatter+NSCalendar.h"
+
 @interface FSMerchandisingCalendar ()
 
 @property (nonatomic, strong) NSArray<FSMerchandisingCalendarYear *> *merchandisingYears;
@@ -30,13 +32,13 @@
         _merchandisingYears = merchandisingYears;
         _fs_privateComponents = [[NSDateComponents alloc] init];
         
-        _weekDateFormatter = [[[NSDateFormatter alloc] init] local];
+        _weekDateFormatter = [[[[NSDateFormatter alloc] init] local] gregorian];
         _weekDateFormatter.dateFormat = @"w";
         
-        _yearDateFormatter = [[[NSDateFormatter alloc] init] local];
+        _yearDateFormatter = [[[[NSDateFormatter alloc] init] local] gregorian];
         _yearDateFormatter.dateFormat = @"yyyy";
         
-        _monthDateFormatter = [[[NSDateFormatter alloc] init] local];
+        _monthDateFormatter = [[[[NSDateFormatter alloc] init] local] gregorian];
         _monthDateFormatter.dateFormat = @"MMMM";
     }
     return self;
@@ -44,7 +46,7 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)merchandisingYearsJSON {
     
-    NSDateFormatter *merchDateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *merchDateFormatter = [[[NSDateFormatter alloc] init] gregorian];
     merchDateFormatter.dateFormat = @"yyyy-MM-dd";
 
     

@@ -8,6 +8,8 @@
 
 #import "FSGregorianCalendar.h"
 
+#import "NSDateFormatter+NSCalendar.h"
+
 @interface FSGregorianCalendar ()
 
 @property (nonatomic, strong) NSDateComponents *fs_privateComponents;
@@ -25,13 +27,13 @@
     if (self = [super initWithCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]]) {
         _fs_privateComponents = [[NSDateComponents alloc] init];
         
-        _weekDateFormatter = [[NSDateFormatter alloc] init];
+        _weekDateFormatter = [[[NSDateFormatter alloc] init] gregorian];
         _weekDateFormatter.dateFormat = @"w";
         
-        _yearDateFormatter = [[NSDateFormatter alloc] init];
+        _yearDateFormatter = [[[NSDateFormatter alloc] init] gregorian];
         _yearDateFormatter.dateFormat = @"yyyy";
         
-        _monthDateFormatter = [[NSDateFormatter alloc] init];
+        _monthDateFormatter = [[[NSDateFormatter alloc] init] gregorian];
         _monthDateFormatter.dateFormat = @"MMMM";
         
     }

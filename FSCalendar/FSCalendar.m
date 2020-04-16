@@ -23,6 +23,8 @@
 #import "FSCalendarWrapper.h"
 #import "FSGregorianCalendar.h"
 
+#import "NSDateFormatter+NSCalendar.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 static inline void FSCalendarAssertDateInBounds(NSDate *date, FSCalendarWrapper *calendarWrapper, NSDate *minimumDate, NSDate *maximumDate) {
@@ -34,7 +36,7 @@ static inline void FSCalendarAssertDateInBounds(NSDate *date, FSCalendarWrapper 
         valid &= maxOffset <= 0;
     }
     if (!valid) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] gregorian];
         formatter.dateFormat = @"yyyy/MM/dd";
         [NSException raise:@"FSCalendar date out of bounds exception" format:@"Target date %@ beyond bounds [%@ - %@]", [formatter stringFromDate:date], [formatter stringFromDate:minimumDate], [formatter stringFromDate:maximumDate]];
     }
@@ -155,7 +157,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 
     _calendarWrapper = [[FSGregorianCalendar alloc] init];
     
-    _formatter = [[NSDateFormatter alloc] init];
+    _formatter = [[[NSDateFormatter alloc] init] gregorian];
     _formatter.dateFormat = @"yyyy-MM-dd";
     _locale = [NSLocale currentLocale];
     _timeZone = [NSTimeZone localTimeZone];
@@ -1583,7 +1585,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     if (_needsRequestingBoundingDates) {
         _needsRequestingBoundingDates = NO;
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] gregorian];
         dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         dateFormatter.dateFormat = @"yyyy-MM-dd";
 

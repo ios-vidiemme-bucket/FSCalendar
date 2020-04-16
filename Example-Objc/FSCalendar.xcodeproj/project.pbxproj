@@ -85,6 +85,8 @@
 		50F2ADE8216D954A00CC481F /* FSCalendarSeparatorDecorationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 50F2ADE6216D954A00CC481F /* FSCalendarSeparatorDecorationView.h */; };
 		50F2ADE9216D954A00CC481F /* FSCalendarSeparatorDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F2ADE7216D954A00CC481F /* FSCalendarSeparatorDecorationView.m */; };
 		50F2ADEA216D954A00CC481F /* FSCalendarSeparatorDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F2ADE7216D954A00CC481F /* FSCalendarSeparatorDecorationView.m */; };
+		9D36DCE324489B9800228B01 /* NSDateFormatter+NSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D36DCE224489B9800228B01 /* NSDateFormatter+NSCalendar.m */; };
+		9D36DCE524489BBD00228B01 /* NSDateFormatter+NSCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D36DCE424489BBD00228B01 /* NSDateFormatter+NSCalendar.h */; };
 		EE52AE181B91E68A00016662 /* FSCalendarScopeExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE52AE171B91E68A00016662 /* FSCalendarScopeExampleViewController.m */; };
 		EE638CC31B89DB6E0006DD1A /* LoadViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE638CC21B89DB6E0006DD1A /* LoadViewExampleViewController.m */; };
 		EE638CC91B89DB940006DD1A /* CalendarConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE638CC81B89DB940006DD1A /* CalendarConfigViewController.m */; };
@@ -202,6 +204,8 @@
 		3A561AA321EC9B7F00A7B22D /* FSCalendarWeeknumberAsideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarWeeknumberAsideView.m; sourceTree = "<group>"; };
 		50F2ADE6216D954A00CC481F /* FSCalendarSeparatorDecorationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCalendarSeparatorDecorationView.h; sourceTree = "<group>"; };
 		50F2ADE7216D954A00CC481F /* FSCalendarSeparatorDecorationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCalendarSeparatorDecorationView.m; sourceTree = "<group>"; };
+		9D36DCE224489B9800228B01 /* NSDateFormatter+NSCalendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+NSCalendar.m"; sourceTree = "<group>"; };
+		9D36DCE424489BBD00228B01 /* NSDateFormatter+NSCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+NSCalendar.h"; sourceTree = "<group>"; };
 		EE0D7FC71B89C5D3003C287B /* FSCalendarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSCalendarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0D7FCB1B89C5D3003C287B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE52AE161B91E68A00016662 /* FSCalendarScopeExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarScopeExampleViewController.h; sourceTree = SOURCE_ROOT; };
@@ -348,6 +352,8 @@
 				3A561A9521EB9D9D00A7B22D /* NSCalendar+Locale.m */,
 				3A561A9621EB9D9D00A7B22D /* NSDateFormatter+Locale.h */,
 				3A561A9721EB9D9D00A7B22D /* NSDateFormatter+Locale.m */,
+				9D36DCE424489BBD00228B01 /* NSDateFormatter+NSCalendar.h */,
+				9D36DCE224489B9800228B01 /* NSDateFormatter+NSCalendar.m */,
 				30B0BAF31B8D9A91004B9476 /* Supporting Files */,
 			);
 			name = FSCalendar;
@@ -532,6 +538,7 @@
 				30A495541DCAD9E6000B2F31 /* FSCalendarWeekdayView.h in Headers */,
 				3A561A9B21EB9D9E00A7B22D /* NSDateFormatter+Locale.h in Headers */,
 				EEC9C0391BDC9E7000383A07 /* FSCalendarCollectionView.h in Headers */,
+				9D36DCE524489BBD00228B01 /* NSDateFormatter+NSCalendar.h in Headers */,
 				30FCB3961BAAD112002B87AD /* FSCalendarStickyHeader.h in Headers */,
 				3095398F1C38D66C00BD37AA /* FSCalendarCollectionViewLayout.h in Headers */,
 				3A561A8B21EB9CA800A7B22D /* FSMerchandisingCalendarYear.h in Headers */,
@@ -655,6 +662,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				ja,
@@ -778,6 +786,7 @@
 				30B0BAF71B8D9AC1004B9476 /* FSCalendarCell.m in Sources */,
 				30DBE3C61DC641AD005A22B7 /* FSCalendarCalculator.m in Sources */,
 				50F2ADEA216D954A00CC481F /* FSCalendarSeparatorDecorationView.m in Sources */,
+				9D36DCE324489B9800228B01 /* NSDateFormatter+NSCalendar.m in Sources */,
 				3A561A9D21EB9D9E00A7B22D /* NSDateFormatter+Locale.m in Sources */,
 				30A495561DCAD9E6000B2F31 /* FSCalendarWeekdayView.m in Sources */,
 				30B0BAF81B8D9AC1004B9476 /* FSCalendarHeaderView.m in Sources */,
