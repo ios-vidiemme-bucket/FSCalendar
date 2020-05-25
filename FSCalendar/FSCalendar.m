@@ -1077,7 +1077,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 
 - (void)deselectDate:(NSDate *)date
 {
-    date = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:date options:2];
+    date = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:date options:NSCalendarSearchBackwards];
     if (![_selectedDates containsObject:date]) {
         return;
     }
@@ -1100,7 +1100,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     
     FSCalendarAssertDateInBounds(date,self.calendarWrapper,self.minimumDate,self.maximumDate);
     
-    NSDate *targetDate = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:date options:2];
+    NSDate *targetDate = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:date options:NSCalendarSearchBackwards];
     NSIndexPath *targetIndexPath = [self.calculator indexPathForDate:targetDate];
     
     BOOL shouldSelect = YES;
