@@ -160,7 +160,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     _formatter = [[[NSDateFormatter alloc] init] gregorian];
     _formatter.dateFormat = @"yyyy-MM-dd";
     _locale = [NSLocale currentLocale];
-    _timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    _timeZone = [NSTimeZone localTimeZone];
     _firstWeekday = 1;
     [self invalidateDateTools];
     
@@ -1077,7 +1077,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 
 - (void)deselectDate:(NSDate *)date
 {
-    date = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:date options:0];
+    date = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:date options:NSCalendarSearchBackwards];
     if (![_selectedDates containsObject:date]) {
         return;
     }
