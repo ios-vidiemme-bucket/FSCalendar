@@ -158,7 +158,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     _calendarWrapper = [[FSGregorianCalendar alloc] init];
     
     _formatter = [[[NSDateFormatter alloc] init] gregorian];
-    _formatter.dateFormat = @"yyyy-MM-dd";
+    _formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
     _locale = [NSLocale currentLocale];
     _timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     _firstWeekday = 1;
@@ -166,7 +166,6 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     
     _today = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:[NSDate date] options:0];
     _currentPage = [self.calendarWrapper fs_firstDayOfMonth:_today];
-    
     
     _minimumDate = [self.formatter dateFromString:@"1970-01-01"];
     _maximumDate = [self.formatter dateFromString:@"2099-12-31"];
