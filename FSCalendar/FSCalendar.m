@@ -151,15 +151,16 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 }
 
 - (void)initialize
-{   
+{
     _appearance = [[FSCalendarAppearance alloc] init];
     _appearance.calendar = self;
 
     _calendarWrapper = [[FSGregorianCalendar alloc] init];
     
     _formatter = [[[NSDateFormatter alloc] init] gregorian];
-    _formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
-    _locale = [NSLocale currentLocale];
+    _formatter.dateFormat = @"yyyy-MM-dd";
+    _formatter.timeZone = [[NSTimeZone alloc] initWithName:@"UTC"];
+    _locale = [NSLocale autoupdatingCurrentLocale];
     _timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     _firstWeekday = 1;
     [self invalidateDateTools];
@@ -1144,8 +1145,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
         [_collectionView selectItemAtIndexPath:targetIndexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         FSCalendarCell *cell = (FSCalendarCell *)[_collectionView cellForItemAtIndexPath:targetIndexPath];
         if ([cell respondsToSelector:@selector(performSelecting)]){
-			[cell performSelecting];
-		}
+            [cell performSelecting];
+        }
         [self enqueueSelectedDate:targetDate];
         [self selectCounterpartDate:targetDate];
         
@@ -1508,7 +1509,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     }
     if (cell) {
         cell.selected = YES;
-        if (self.collectionView.allowsMultipleSelection) {   
+        if (self.collectionView.allowsMultipleSelection) {
             [self.collectionView selectItemAtIndexPath:[self.collectionView indexPathForCell:cell] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
     }
@@ -1584,13 +1585,9 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     if (_needsRequestingBoundingDates) {
         _needsRequestingBoundingDates = NO;
         
-        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] gregorian];
-        dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        dateFormatter.dateFormat = @"yyyy-MM-dd";
-
-        NSDate *newMin = [self.dataSourceProxy minimumDateForCalendar:self]?:[dateFormatter dateFromString:@"1970-01-01"];
+        NSDate *newMin = [self.dataSourceProxy minimumDateForCalendar:self]?:[_formatter dateFromString:@"1970-01-01"];
         newMin = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:newMin options:0];
-        NSDate *newMax = [self.dataSourceProxy maximumDateForCalendar:self]?:[dateFormatter dateFromString:@"2099-12-01"];
+        NSDate *newMax = [self.dataSourceProxy maximumDateForCalendar:self]?:[_formatter dateFromString:@"2099-12-01"];
         newMax = [self.calendarWrapper dateBySettingHour:0 minute:0 second:0 ofDate:newMax options:0];
         
         NSAssert([self.calendarWrapper compareDate:newMin toDate:newMax toUnitGranularity:NSCalendarUnitDay] != NSOrderedDescending, @"The minimum date of calendar should be earlier than the maximum.");

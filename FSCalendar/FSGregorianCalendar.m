@@ -35,6 +35,7 @@
         
         _monthDateFormatter = [[[NSDateFormatter alloc] init] gregorian];
         _monthDateFormatter.dateFormat = @"MMMM";
+        _monthDateFormatter.timeZone = [[NSTimeZone alloc] initWithName:@"UTC"];
         
     }
     return self;
